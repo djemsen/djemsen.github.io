@@ -3,110 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Jimmy — Ideas & Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: #f2f2f2;
+    :root{
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.03);
     }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071019);color:#e6eef6;line-height:1.5}
+
+    /* nav */
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 28px;backdrop-filter:blur(6px);position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(10,14,20,0.6),rgba(10,14,20,0.25));border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0ea5a8,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .brand h1{font-size:16px;margin:0}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{color:var(--muted);text-decoration:none;font-weight:600}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:64px 28px;max-width:1200px;margin:0 auto}
+    .hero-card{background:linear-gradient(180deg,var(--card),#051018);padding:32px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .hero h2{font-size:28px;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 20px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;background:var(--accent);color:#03201a;font-weight:700;text-decoration:none}
+    .btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* profile card */
+    .profile{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;gap:14px;align-items:center}
+    .avatar{width:88px;height:88px;border-radius:12px;background-image:url('https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=800&q=80&auto=format&fit=crop');background-size:cover}
+    .meta h3{margin:0;font-size:18px}
+    .meta p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    /* sections */
+    main{max-width:1200px;margin:28px auto;padding:0 28px}
+    .section{margin-bottom:28px}
+    .section h3{margin:0 0 14px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--glass);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .card h4{margin:10px 0 6px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* ideas list */
+    .ideas{display:flex;flex-direction:column;gap:12px}
+    .idea{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02)}
+
+    /* contact */
+    .contact{display:flex;gap:20px;align-items:center}
+    .social a{display:inline-block;margin-right:10px;color:var(--muted);text-decoration:none}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
     }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
+    @media (max-width:640px){
+      .nav{padding:12px}
+      .grid{grid-template-columns:1fr}
+      .brand h1{font-size:14px}
     }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #bbbbbb;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 20px;
-      background: #111;
-      position: sticky;
-      top: 0;
-    }
-    nav a {
-      color: #f2f2f2;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    }
-    .card h2 {
-      margin-top: 0;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-      background: #111;
-      font-size: 0.9em;
-      color: #777;
-    }
+
+    /* small helper */
+    .muted{color:var(--muted)}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My World</h1>
-    <p>A collection of my ideas, projects, and passions.</p>
-  </header>
+  <nav class="nav">
+    <div class="brand">
+      <div class="logo">J</div>
+      <div>
+        <h1>Jimmy</h1>
+        <div class="muted" style="font-size:12px">Ideas • Projects • Notes</div>
+      </div>
+    </div>
 
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#ideas">Ideas</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
-  <section id="about">
-    <div class="card">
-      <h2>About Me</h2>
-      <p>Write your introduction here — who you are, what you do, and what you love working on.</p>
-    </div>
-  </section>
+  <header class="hero">
+    <div class="hero-card">
+      <h2>Hi — I’m Jimmy.</h2>
+      <p>Maker, hobby winemaker, gardener, and tinkerer. I document experiments, projects, and little ideas that might spark something for others.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">See Projects</a>
+        <a class="btn outline" href="#contact">Get in Touch</a>
+      </div>
 
-  <section id="portfolio">
-    <div class="card">
-      <h2>Portfolio</h2>
-      <p>Showcase your projects here. You can add links, images, or descriptions of your work.</p>
+      <div style="margin-top:20px">
+        <div class="section">
+          <h3>Quick Links</h3>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <a class="btn outline" href="#">Resume</a>
+            <a class="btn outline" href="#">GitHub</a>
+            <a class="btn outline" href="#">Blog</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section id="ideas">
-    <div class="card">
-      <h2>Ideas</h2>
-      <p>Write down concepts, experiments, or things you want to explore.</p>
-    </div>
-  </section>
+    <aside>
+      <div class="profile">
+        <div class="avatar" role="img" aria-label="avatar"></div>
+        <div class="meta">
+          <h3>Jimmy</h3>
+          <p class="muted">Varna / Bulgaria — English / Turkish / Bulgarian</p>
+          <p style="margin-top:8px;font-size:13px;color:var(--muted)">Wine, rakiya, solar, woodworking — I like building and sharing.</p>
+        </div>
+      </div>
 
-  <section id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <p>Add an email or social links so people can reach out to you.</p>
-    </div>
-  </section>
+      <div style="margin-top:14px" class="card">
+        <h4 style="margin:0 0 6px">Status</h4>
+        <p class="muted" style="margin:0">This site is a work in progress — content and photos will appear here soon.</p>
+      </div>
+    </aside>
+  </header>
 
-  <footer>
-    © 2025 My Portfolio Website
-  </footer>
+  <main>
+    <section id="about" class="section">
+      <h3>About</h3>
+      <div class="card">
+        <p>Hello! I tinker with home projects and like documenting the process. Below are some recent projects and ideas. If you'd like, I can help you expand any project page with photos, step‑by‑step notes, or downloadable files.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h3>Projects</h3>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80&auto=format&fit=crop" alt="Wine making">
+          <h4>Vardenski Miski Wine</h4>
+          <p class="muted">First batch — fermentation notes, barrel aging, and tasting notes.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1602872020449-0d3c1b4f9a2e?w=1200&q=80&auto=format&fit=crop" alt="Rakiya">
+          <h4>Rakiya Tradition</h4>
+          <p class="muted">Recipes, traditions, and improvements from years of distilling.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1200&q=80&auto=format&fit=crop" alt="Solar panels">
+          <h4>Solar Install</h4>
+          <p class="muted">24 panels on a flat roof — framing, inverter setup, and monitoring tips.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1200&q=80&auto=format&fit=crop" alt="Gardening">
+          <h4>Gardening — Figs & Roses</h4>
+          <p class="muted">Maintenance notes and pruning schedules I follow.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1580894908361-0b4f09f0f9b1?w=1200&q=80&auto=format&fit=crop" alt="Electronics">
+          <h4>Garage Gate Automation</h4>
+          <p class="muted">Reverse engineering a controller and integrating with home assistant.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=1200&q=80&auto=format&fit=crop" alt="Masonry">
+          <h4>Freemasonry Notes</h4>
+          <p class="muted">Ritual vocabulary, translations, and pocket references I prepared for visits.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ideas" class="section">
+      <h3>Ideas & Notes</h3>
+      <div class="ideas">
+        <div class="idea">
+          <strong>1.</strong> Try aging a small Vardenski Miski batch in steel vs. plastic to compare mouthfeel.
+        </div>
+        <div class="idea">
+          <strong>2.</strong> Document a step‑by‑step sauerkraut fermentation guide with photos and timings.
+        </div>
+        <div class="idea">
+          <strong>3.</strong> Build a compact logbook for solar inverter energy production per day.</div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3>Contact</h3>
+      <div class="card contact">
+        <div>
+          <p class="muted">Want to collaborate or ask a question? Email me or find me on social.</p>
+          <p style="margin:8px 0"><a href="mailto:youremail@example.com" class="btn">Email Me</a></p>
+          <div class="social">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin:40px 0;padding:20px;text-align:center;color:var(--muted)">
+      © 2025 Jimmy — Built with ❤️. Hosted on GitHub Pages.
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href=a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    });
+  </script>
 </body>
 </html>
