@@ -1,7 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #f2f2f2;
+    }
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #bbbbbb;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background: #111;
+      position: sticky;
+      top: 0;
+    }
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      background: #111;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <header>
+    <h1>Welcome to My World</h1>
+    <p>A collection of my ideas, projects, and passions.</p>
+  </header>
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#ideas">Ideas</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>Write your introduction here — who you are, what you do, and what you love working on.</p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="card">
+      <h2>Portfolio</h2>
+      <p>Showcase your projects here. You can add links, images, or descriptions of your work.</p>
+    </div>
+  </section>
+
+  <section id="ideas">
+    <div class="card">
+      <h2>Ideas</h2>
+      <p>Write down concepts, experiments, or things you want to explore.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Add an email or social links so people can reach out to you.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 My Portfolio Website
+  </footer>
 </body>
 </html>
